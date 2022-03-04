@@ -11,6 +11,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Fetch Current Releases
         uses: ./
-        id: hello
+        id: releases
       - name: Get the PHPReleases output
-        run: echo "PHP releases returned ${{ steps.hello.outputs.releases }}"
+        run: echo "PHP releases returned ${{ steps.releases.outputs.releases }}"
