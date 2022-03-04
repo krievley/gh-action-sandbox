@@ -3,6 +3,9 @@ on: [push]
 jobs:
   output_releases:
     runs-on: ubuntu-latest
+    outputs:
+      minimum: ${{ steps.releases.outputs.minimum }}
+      latest: ${{ steps.generate-matrix.outputs.latest }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -15,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ["${{ steps.releases.outputs.minimum }}", "${{ steps.releases.outputs.latest }}"]
+        php: ["${{ needs.output_releases.outputs.minimum }}", "${{ needs.output_releases.outputs.latest }}"]
 
     name: PHP ${{ matrix.php }}
 
