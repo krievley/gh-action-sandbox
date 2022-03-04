@@ -6,7 +6,7 @@ jobs:
     outputs:
       minimum: ${{ steps.releases.outputs.minimum }}
       latest: ${{ steps.releases.outputs.latest }}
-      range: ${{ toJSON(steps.releases.outputs.range) }}
+      range: ${{ steps.releases.outputs.range }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2

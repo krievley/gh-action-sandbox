@@ -6,4 +6,6 @@ echo "::set-output name=minimum::$Minimum"
 Latest=$(curl -k --url 'https://phpreleases.com/api/releases/latest' | jq -r 'split(".") | .[0] + "." + .[1]')
 echo "::set-output name=latest::${Latest}"
 
-echo "::set-output name=range::[${Minimum}, ${Latest}]"
+Range="[${Minimum}, ${Latest}]" | jq '@json'
+
+echo "::set-output name=range::${Range}"
