@@ -3,14 +3,32 @@ on: [push]
 jobs:
   current_php_releases:
     runs-on: ubuntu-latest
-    name: Fetch all current PHP Releases
+    strategy:
+      matrix:
+#        os: [ Ubuntu, Windows, macOS ]
+        php: [${{ steps.releases.outputs.minimum }}, ${{ steps.releases.outputs.latest }}]
+
+        include:
+          - os: Ubuntu
+            os-version: ubuntu-latest
+
+          - os: Windows
+            os-version: windows-latest
+
+          - os: macOS
+            os-version: macos-latest
+    name: PHP ${{ matrix.php }}
+
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Fetch Current Releases
         uses: ./
         id: releases
-      - name: Get the PHPReleases output
-        run: echo "PHP releases returned [${{ steps.releases.outputs.minimum }}, ${{ steps.releases.outputs.latest }}]"
+
+      - name: Echo PHP
+        uses: shivammathur/setup-php@v2
+        run: echo ${{ matrix.php }}
