@@ -5,8 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # os: [ Ubuntu, Windows, macOS ]
-        php: [${{ steps.releases.outputs.minimum }}, ${{ steps.releases.outputs.latest }}]
+        php: ["${{ steps.releases.outputs.minimum }}", "${{ steps.releases.outputs.latest }}"]
 
         include:
           - os: Ubuntu
