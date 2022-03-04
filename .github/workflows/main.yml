@@ -29,5 +29,4 @@ jobs:
         id: releases
 
       - name: Echo PHP
-        uses: shivammathur/setup-php@v2
         run: echo ${{ matrix.php }}
