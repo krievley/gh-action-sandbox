@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       minimum: ${{ steps.releases.outputs.minimum }}
-      latest: ${{ steps.generate-matrix.outputs.latest }}
+      latest: ${{ steps.releases.outputs.latest }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
