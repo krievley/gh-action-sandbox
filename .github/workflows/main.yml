@@ -6,6 +6,7 @@ jobs:
     outputs:
       minimum: ${{ steps.releases.outputs.minimum }}
       latest: ${{ steps.releases.outputs.latest }}
+      range: ${{ steps.releases.outputs.range }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -19,7 +20,7 @@ jobs:
     needs: output_releases
     strategy:
       matrix:
-        php: ["${{ needs.output_releases.outputs.minimum }}", "${{ needs.output_releases.outputs.latest }}"]
+        php: ${{ needs.output_releases.outputs.range }}
 
     name: PHP ${{ matrix.php }}
 

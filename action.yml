@@ -6,6 +6,8 @@ outputs:
     description: 'The minimum active support PHP release'
   latest: #id of output
     description: 'The latest PHP release'
+  range:
+    description: 'Should be a range'
 runs:
   using: 'docker'
   image: 'Dockerfile'
