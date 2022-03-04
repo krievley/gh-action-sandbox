@@ -2,8 +2,10 @@
 name: 'Current PHP Releases'
 description: 'Get data from PHPReleases.com'
 outputs:
-  releases: #id of output
-    description: 'The data returned from phpreleases.com'
+  minimum: #id of output
+    description: 'The minimum active support PHP release'
+  latest: #id of output
+    description: 'The latest PHP release'
 runs:
   using: 'docker'
   image: 'Dockerfile'
