@@ -9,6 +9,8 @@ inputs:
 outputs:
   time: # id of output
     description: 'The time we greeted you'
+  releases: #id of output
+    description: 'The data returned from phpreleases.com'
 runs:
   using: 'docker'
   image: 'Dockerfile'
