@@ -1,4 +1,6 @@
 #!/bin/sh -l
 
-releases=$(curl --url 'https://phpreleases.com/api/releases')
-echo "::set-output name=releases::$releases"
+minimum=$(curl --url 'https://phpreleases.com/api/releases/minimum-supported/active')
+echo "::set-output name=releases::$minimum"
+latest=$(curl --url 'https://phpreleases.com/api/releases/latest')
+echo "::set-output name=releases::$latest%.*"

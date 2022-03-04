@@ -13,4 +13,4 @@ jobs:
         uses: ./
         id: releases
       - name: Get the PHPReleases output
-        run: echo "PHP releases returned ${{ steps.releases.outputs.releases }}"
+        run: echo "PHP releases returned [${{ steps.releases.outputs.minimum }}, ${{ steps.releases.outputs.latest }}]"
