@@ -9,6 +9,7 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Fetch Current Releases
+        uses: ./
       - name: Get the PHPReleases output
-        uses: ./ # Uses an action in the root directory
         run: echo "PHP releases returned ${{ steps.hello.outputs.releases }}"
