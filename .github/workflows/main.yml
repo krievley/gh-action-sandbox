@@ -14,6 +14,9 @@ jobs:
       - name: Fetch Current Releases
         uses: ./
         id: releases
+
+      - name: Dump Range Value
+        run: echo ${{ steps.releases.outputs.range }}
         
   current_php_releases:
     runs-on: ubuntu-latest
