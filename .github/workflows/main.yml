@@ -1,18 +1,14 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  current_php_releases:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Fetch all current PHP Releases
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
-        id: hello
-        with:
-          who-to-greet: 'Mona the Octocat'
       - name: Get the PHPReleases output
+        uses: ./ # Uses an action in the root directory
         run: echo "PHP releases returned ${{ steps.hello.outputs.releases }}"

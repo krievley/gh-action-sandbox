@@ -1,14 +1,7 @@
 # action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
-inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
+name: 'Current PHP Releases'
+description: 'Get data from PHPReleases.com'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
   releases: #id of output
     description: 'The data returned from phpreleases.com'
 runs:
