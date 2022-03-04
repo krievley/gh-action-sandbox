@@ -1,9 +1,9 @@
 # Container image that runs your code
-FROM ubuntu:16.04
+FROM curlimages/curl:7.81.0
 
-RUN apt-get update && apt-get install -y \
-curl
-CMD /bin/bash
+#RUN apt-get update && apt-get install -y \
+#curl
+#CMD /bin/bash
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
