@@ -3,4 +3,5 @@
 echo "Hello $1"
 time=$(date)
 echo "::set-output name=time::$time"
-echo "::set-output name=releases::$(curl 'https://phpreleases.com/api/releases/latest')"
+releases=$(curl 'https://phpreleases.com/api/releases/latest')
+echo "::set-output name=releases::$releases"
